@@ -29,3 +29,7 @@ ul {
   border-radius: 10%;
   border: none;
 }
+
+.done {
+  text-decoration: line-through;
+}
