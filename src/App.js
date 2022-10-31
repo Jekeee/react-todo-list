@@ -21,12 +21,19 @@ function App() {
   function removeTodo(id) {
     setTodos(todos.filter(todo =>todo.id !== id))
   }
+  function addToDo(title){
+    setTodos(todos.concat([{
+      title,
+      id: Date.now(),
+      completed: false
+    }]))
+  }
 
   return (
     <Context.Provider value={{removeTodo}}>
       <div className="App">
         <h1>React To Do List</h1>
-        <AddTodo/>
+        <AddTodo onCreate={addToDo}/>
         {todos.length ? (
           <TodoList todos={todos} onToggle={toggleTodo}/>)
           : (
